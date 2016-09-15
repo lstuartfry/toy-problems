@@ -1,3 +1,7 @@
+/*
+Given a string, find the length of the longest substring without repeating characters.
+*/
+
 var lengthOfLongestSubstring = function(s) {
   if (s.length === 1) {
     return 1;
