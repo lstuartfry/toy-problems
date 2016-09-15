@@ -1,13 +1,19 @@
 var lengthOfLongestSubstring = function(s) {
-  var longestString = "";
+  if (s.length === 1) {
+    return 1;
+  }
+  var longestLength = 0;
   var currentString = "";
-  for (var i = 1; i < s.length; i++) {
-    if (s[i] !== s[i - 1] && currentString.indexOf(s[i]) === -1) {
-      currentString = currentString + s[i];
-      if (currentString.length > longestString.length) {
-        longestString = currentString;
-      }
+
+  for (var i = 0; i < s.length; i++) {
+    var currentChar = s[i];
+    var index = currentString.indexOf(currentChar);
+    if (index === -1) {
+      currentString += currentChar;
+      longestLength = Math.max(longestLength, currentString.length);
+    } else {
+      currentString = currentString.slice(index + 1) + s[i];
     }
   }
-  return longestString.length;
+  return longestLength;
 };
