@@ -3,11 +3,13 @@ Invert a binary tree.
 */
 
 var invertTree = function(root) {
-	if(root) {
-		var left = root.left ? root.left : null;
-		var right = root.right ? root.right : null;
-		root.left = invertTree(right);
-		root.right = invertTree(left);
+	if (!root || (!root.left && !root.right)) {
+	  return root;
 	}
+	var temp = root.left;
+	root.left = root.right;
+	root.right = temp;
+	invertTree(root.left);
+	invertTree(root.right);
 	return root;
 };
