@@ -15,8 +15,8 @@ var lengthOfLastWord = function(s) {
         return result.length;
     } else {
         return 0;
-    }
+    	}
     } else {
     	return 0;
-    }
+    	}
 };
