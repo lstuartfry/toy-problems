@@ -1,4 +1,5 @@
 /*
+PART I
 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 Do not allocate extra space for another array, you must do this in place with constant memory.
 For example,
@@ -21,6 +22,30 @@ var removeDuplicates = function(nums) {
     } else {
       index++;
     }
+  }
+  return nums.length;
+};
+
+/*
+PART II
+What if duplicates are allowed at most twice?
+
+For example,
+Given sorted array nums = [1,1,1,2,2,3],
+
+Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3. 
+It doesn't matter what you leave beyond the new length.
+*/
+var removeDuplicates = function(nums) {
+  var length = nums.length - 1;
+  var index = 1;
+  while (index <= length) {
+    if ((nums[index] === nums[index - 1]) && (nums[index] === nums[index-2])) {
+      nums.splice((index-2), 1);
+      length--;
+    } else {
+      index++;
+      }
   }
   return nums.length;
 };
