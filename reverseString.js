@@ -13,3 +13,14 @@ function reverseString(string) {
 	// step is to simply join each character together
 	return reversed.join("");
 }
+
+// using built-in javascript helpers
+
+function reverseString(string) {
+	return string.split("").reverse().join("");
+}
+
+// using recursion, without creating a new storage array or new string
+function reverseString(string) {
+	return (string === "") ? "" : reverseString(string.substr(1)) + string.charAt(0);
+}
