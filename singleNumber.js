@@ -19,3 +19,6 @@ const singleNumber = array => {
     }
   }
 }
+
+// a MUCH FASTER solution, using an XOR operation, combined with reduce
+const singleNumber = nums => nums.reduce((a, b) => a^b);
