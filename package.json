@@ -1,0 +1,14 @@
+{
+	"name": "toy-problems",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/lstuartfry/toy-problems.git",
+	"author": "Lukas Stuart-Fry <lstuartfry@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"jest": "^25.1.0"
+	},
+	"scripts": {
+		"test": "jest"
+	}
+}
