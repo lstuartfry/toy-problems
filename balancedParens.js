@@ -1,9 +1,11 @@
 /*
+
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', 
 determine if the input string is valid.
 
 The brackets must close in the correct order, "()" and "()[]{}" are all valid 
 but "(]" and "([)]" are not.
+
 */
 
 const balancedParens = string => {
@@ -40,3 +42,5 @@ const balancedParens = string => {
 	// if we have a truly balanced string, our stack will be empty after completing our for-loop
 	return stack.length === 0;
 };
+
+module.exports = balancedParens;
