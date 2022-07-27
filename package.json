@@ -6,7 +6,9 @@
 	"author": "Lukas Stuart-Fry <lstuartfry@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
-		"jest": "^28.1.3"
+		"@types/jest": "^28.1.6",
+		"jest": "^28.1.3",
+		"prettier": "^2.7.1"
 	},
 	"scripts": {
 		"test": "jest"
