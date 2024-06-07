@@ -3,27 +3,31 @@ Given a string, find the length of the longest substring without repeating chara
 */
 
 export default function lengthOfLongestSubstring(s: string) {
-  if (s.length <= 1) {
-    return s.length;
-  }
-
   let longestLength = 0;
-  let currentSubstring = '';
+  const characterMap = new Map();
 
-  for (let i = 0; i < s.length; i++) {
-    const currentChar = s[i];
-    const index = currentSubstring.indexOf(currentChar);
-    // check if the character exists elsewhere in the substring.
-    // if it doesn't, add it to the currentSubstring
-    if (index === -1) {
-      currentSubstring += currentChar;
-      // check if the new substring is the longest substring found
-      longestLength = Math.max(longestLength, currentSubstring.length);
-    } else {
-      // if the character exists elsewhere in the current substring,
-      // create a new substring starting one index after the index of the duplicate character.
-      currentSubstring = currentSubstring.slice(index + 1) + s[i];
+  // use a sliding-window method to track the length of the current substring using two indices.
+  let leftIndex = 0;
+
+  for (let rightIndex = 0; rightIndex < s.length; rightIndex++) {
+    const currentCharacter = s[rightIndex];
+
+    // if we find a character that exists in the map, update the leftIndex to start a new substring
+    if (
+      characterMap.has(currentCharacter) &&
+      characterMap.get(currentCharacter) >= leftIndex
+    ) {
+      leftIndex = characterMap.get(currentCharacter) + 1;
     }
+
+    // if the character hasn't been found,
+    // check the longestLength against the length of the current window.
+    // add 1 to the length of the window due to zero-based index tracking.
+    longestLength = Math.max(longestLength, rightIndex - leftIndex + 1);
+
+    // update characterMap with new index of character
+    characterMap.set(currentCharacter, rightIndex);
   }
+
   return longestLength;
 }
